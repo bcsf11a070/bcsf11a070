@@ -1,0 +1,68 @@
+﻿@model MvcApplication5.Models.Game_Info
+
+@{
+    ViewBag.Title = "InsertNewGame";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+<script src="~/Scripts/bootstrap.js"></script>
+<h1>@ViewBag.error</h1>
+<h2 style="color:blue">Insert New Game</h2>
+<div class="col-md-3">
+
+     @using (Html.BeginForm("Save", "Admin", FormMethod.Post, new { enctype =   "multipart/form-data" }))
+     {  
+         
+          
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Fill Form</legend>
+         <div class="form-group">
+     @Html.LabelFor(m=>m.name)
+
+      @Html.TextBox("name",  "",new  { @class="form-control" })
+      @Html.ValidationMessageFor(model => model.name)
+  </div>
+
+  
+
+   <div class="form-group">
+               @Html.Label("Select Category")
+    
+              <select class="form-control" id="sel1" name="category">
+                <option>Action</option>
+                <option>Sport</option>
+                <option>Puzzle</option>
+                
+              </select>
+  </div>
+
+      <div class="form-group">
+          <label for="img">Select Game Image:</label>
+            <input id="input-1" type="file" class="file" name="files" required>
+             
+          
+    <!-- @Html.Label("Image Path")
+     @Html.TextBox("src_img",  "",new  { @class="form-control" }) -->
+  </div>
+
+      <div class="form-group">
+           <label for="img">Select Game:</label>
+            <input id="input-2" type="file" class="file" name="files" required>
+           
+    <!-- @Html.Label("Game Path")
+     @Html.TextBox("src_swf",  "",new  { @class="form-control" }) -->
+         
+      </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+         </fieldset>
+}
+
+    </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

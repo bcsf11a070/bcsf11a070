@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Play flash games online";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}@model IEnumerable<MvcApplication5.Models.Game_Info>
+   
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2 >Select Game To Play:  </h2>
+  @foreach (var game in Model)
+  {
+
+      ViewBag.name = @game.src_swf;
+               <div class="col-md-3">
+                <a href="/Game/Play?game=@game.name&src=@game.src_swf" class="img-thumbnail" >
+                  <p></p>
+                               
+                      <img src="@game.src_img" alt="Pulpit Rock"  >
+                                  
+                </a>
+                   <div class="caption" >
+                            <p>@game.name</p>
+                        </div>
+              </div>
+           
+  }
+    

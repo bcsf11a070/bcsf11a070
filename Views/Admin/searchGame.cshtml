@@ -1,0 +1,92 @@
+﻿@model MvcApplication5.Models.Game_Info
+
+@{
+    ViewBag.Title = "Search Game";
+}
+
+<h2>Search Game</h2>
+<div>
+
+
+     <div class="col-md-3">
+      @Html.Label("Enter value to search")
+      @Html.TextBox("name", "",new  { @class="form-control",id="t1" })
+         <br/>
+      <button type="button" class="btn btn-primary" id="b1">Search</button>
+  </div>
+
+
+    <div id="result">
+        <p id="error" style="color:red;font-size:250% "> </p>
+        </div>
+
+
+        <div id="tabledata">
+<table class="table table-bordered">
+    <thead>
+      <tr class="danger">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Category</th>
+          <th>Action</th>
+      </tr>
+    </thead>
+     <tbody id="r">
+           
+    
+   
+            
+      
+    </tbody>
+  </table>
+
+
+
+
+
+
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#tabledata').hide();
+            $('#result').hide();
+
+            $('#b1').click(function () {
+               
+                var searchVal = $('#t1').val();
+                $('td').remove();
+                //alert('User Name ='+ userName);
+                $.getJSON("/admin/SearchResult?searchVal=" + searchVal, function (data)
+                {
+                   
+                    
+                    if (data.count!=0) {
+                        $('#tabledata').show();
+                    }
+                    else
+                        $('#tabledata').hide();
+                    for (i = 0; i <data.count; i++) {
+
+                        $('#r').append('<tr id ="rr" class="info"><td> ' + data.games[i].Id + '</td><td>' + data.games[i].name + '</td><td>' + data.games[i].category + '</td>        <td>                <a href="/Admin/UpdateGame/' + data.games[i].Id + '" style="color:blue"> Update</a>                <a href="/Admin/DeleteGame/'+ data.games[i].Id + '"  style="color:blue"> Delete</a>            </td>      </tr>');
+
+                    }
+
+
+                    if (data.count == 0) {
+
+                        $('#error').text("No results Found!");
+                        $('#result').show();
+                    }
+                    else {
+                        $('#result').hide();
+                    }
+                });
+
+            });
+
+        });
+    </script>
+</div>

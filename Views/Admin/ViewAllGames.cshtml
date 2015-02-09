@@ -1,0 +1,42 @@
+﻿
+
+@{
+    ViewBag.Title = "ViewAllGames";
+}
+@model IEnumerable<MvcApplication5.Models.Game_Info>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2>View All Games</h2>
+
+<table class="table table-bordered">
+    <thead>
+      <tr class="danger">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Category</th>
+          <th>Action</th>
+      </tr>
+    </thead>
+     <tbody>
+            @foreach(var game in Model)
+            {
+          
+    <tr class="info">
+        <td>@game.Id</td>
+        <td>@game.name</td>
+        <td>@game.category</td>
+        <td>
+                <a href="/Admin/UpdateGame/@game.Id"  style="color:blue"> Update</a>
+                <a href="/Admin/DeleteGame/@game.Id"  style="color:blue"> Delete</a>
+
+            </td>
+
+      </tr>
+   
+            }
+      
+    </tbody>
+  </table>
+
+
+
+            

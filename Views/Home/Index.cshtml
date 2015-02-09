@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Play flash games online";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<link href="~/Content/half-slider.css" rel="stylesheet" />
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper" style="background-image: url(~/Images/websitelogo.png)">
+            
+            <hgroup class="titile">
+               <marquee><h1>@ViewBag.Title</h1></marquee>
+                 <div align="center">
+   <object class="embed-responsive-item">
+     <video autoplay loop >
+       <source src="~/Images/movie.webm" />
+     </video>
+   </object>
+ </div>
+                <!-- <h2>@ViewBag.Message</h2>*_-->
+            </hgroup>
+            <!--
+
+                <p style="font-size:large; color:white">
+                 The new online games site, where you can play a huge range of free online games including action games, sports games and puzzle games</p>
+       
+                -->
+             </div>
+    </section>
+}
+
+<h3 style="color:blue;font-size:300%">Select Game Category:</h3>
+<div class="col-md-6" style="margin-left:30%">
+
+
+    @Html.ActionLink("1. Action Games", "ViewGames", "Game", new { category=1 },new { @class="list-group-item" , style="color:green;font-size:250% "} )
+    @Html.ActionLink("2. Sport  Games", "ViewGames", "Game", new { category=2 },new { @class="list-group-item" , style="color:green;font-size:250% "} )
+    @Html.ActionLink("3. Puzzle Games", "ViewGames", "Game", new { category=3 },new { @class="list-group-item" , style="color:green;font-size:250% "} )
+    @Html.ActionLink("4. View Images", "ViewImages", "Game", new { },new { @class="list-group-item" , style="color:green;font-size:250% "} )
+
+    </div>
+
+    

@@ -1,0 +1,75 @@
+﻿@model MvcApplication5.Models.Game_Info
+@{
+    ViewBag.Title = "Play flash games online";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<h2>View Images</h2>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html >
+  <head><title></title>  </head>
+<body>
+<div id="content">
+	<p>
+
+		<a id="example1" href="/Games/example/Air_Wave.png">
+            <img alt="example1" src="/Games/example/Air_Wave.png" />
+
+		</a>
+
+		<a id="example2" href="/Games/example/30_Days_Honey.png"><img alt="example2" src="/Games/example/30_Days_Honey.png" /></a>
+
+		<a id="example3" href="/Games/example/Battle_Buggy.png"><img alt="example3" src="/Games/example/Battle_Buggy.png" /></a>
+		
+		<a id="example4" href="/Games/example/Back_Yards_Buzzing.png"><img class="last" alt="example4" src="/Games/example/Back_Yards_Buzzing.png" /></a>
+	
+        </p>
+	</div>
+</body>
+</html>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+	
+<script src="~/Games/jquery.easing-1.3.pack.js"></script>
+<link href="~/Games/jquery.fancybox-1.3.4.css" rel="stylesheet" />
+<script src="~/Games/jquery.fancybox-1.3.4.js"></script>
+
+<script src="~/Games/jquery.fancybox-1.3.4.pack.js"></script>
+
+<script src="~/Games/jquery.mousewheel-3.0.4.pack.js"></script>
+
+
+
+
+<script >
+	    $(document).ready(function() {
+	        /*
+			*   Examples - images
+			*/
+
+	        $("a#example1").fancybox();
+
+	        $("a#example2").fancybox({
+	            'overlayShow'	: false,
+	            'transitionIn'	: 'elastic',
+	            'transitionOut'	: 'elastic'
+	        });
+
+	        $("a#example3").fancybox({
+	            'transitionIn'	: 'none',
+	            'transitionOut'	: 'none'	
+	        });
+
+	        $("a#example4").fancybox({
+	            'opacity'		: true,
+	            'overlayShow'	: false,
+	            'transitionIn'	: 'elastic',
+	            'transitionOut'	: 'none'
+	        });
+	        $("a.group").fancybox({
+	            'transitionIn': 'elastic',
+	            'transitionOut': 'elastic',
+	            'speedIn': 600,
+	            'speedOut': 200,
+	            'overlayShow': false
+	        });
+	    });
+	</script>

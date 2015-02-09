@@ -1,0 +1,56 @@
+﻿@model MvcApplication5.Models.Game_Info
+
+@{
+    ViewBag.Title = "UpdateGame";
+}
+
+<h2> Update Game </h2>
+
+     @using (Html.BeginForm("UpdateConfirm", "Admin", FormMethod.Post, new  { @class="col-md-6"}))
+     { 
+         @Html.Hidden("Id",@Model.Id)
+         
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Fill Form</legend>
+         <div class="form-group">
+     @Html.LabelFor(m=>m.name)
+
+      @Html.TextBox("name",  "",new  { @class="form-control" })
+      @Html.ValidationMessageFor(model => model.name)
+  </div>
+
+  
+
+  
+
+   <div class="form-group">
+               @Html.Label("Select Category")
+    
+              <select class="form-control" id="sel1" name="category">
+                <option>Action</option>
+                <option>Sport</option>
+                <option>Puzzle</option>
+                
+              </select>
+  </div>
+
+   <!--   <div class="form-group">
+     @Html.Label("Image Path")
+     @Html.TextBox("src_img", Model.src_img,new  { @class="form-control" })
+  </div>
+
+      <div class="form-group">
+     @Html.Label("Game Path")
+     @Html.TextBox("src_swf",  Model.src_swf,new  { @class="form-control" })
+       
+      </div>
+       -->
+  <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+    }
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

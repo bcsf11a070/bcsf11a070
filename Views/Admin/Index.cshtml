@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h1 style="color:blue;font-size:300% ">Admin Panel</h1>
+<div  class="col-md-4" style="margin-left:30%">
+        @Html.ActionLink("Add New Game", "InsertNewGame", "Admin", new { @class="list-group-item" , style="color:green;font-size:250% "} )
+        @Html.ActionLink("Update Game", "ViewAllGames", "Admin", new { @class="list-group-item" , style="color:green;font-size:250% "} )
+        @Html.ActionLink("Delete Game", "ViewAllGames", "Admin", new { @class="list-group-item" , style="color:green;font-size:250% "} )
+        @Html.ActionLink("View All Games", "ViewAllGames", "Admin", new { @class="list-group-item" , style="color:green;font-size:250% "} )
+        @Html.ActionLink("Search Games", "searchGame", "Admin", new { @class="list-group-item" , style="color:green;font-size:250% "} )
+
+
+
+  
+</div>
