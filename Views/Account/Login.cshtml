@@ -21,6 +21,7 @@
                 @Html.LabelFor(m => m.UserName)
                 @Html.TextBoxFor(m => m.UserName)
                 @Html.ValidationMessageFor(m => m.UserName)
+                 <p id="p1" style="color:green"></p>
             </li>
             <li>
                 @Html.LabelFor(m => m.Password)
@@ -48,3 +49,34 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+@Scripts.Render("~/bundles/jquery")
+
+    <script>
+
+        $(document).ready(function () {
+
+            
+            $('#UserName').change(function () {
+               
+                var uname = $('#UserName').val();
+                 //alert('User Name ='+ userName);
+                $.getJSON("/Account/CheckUnameAvailability?uname=" + uname, function (data)
+                {
+                    if (data) {
+                        $('#p1').css("color", "green");
+                        $('#p1').text('Valid user name');
+                    }
+                    else {
+                        $('#p1').css("color","red");
+
+                        $('#p1').text('Invalid user name');
+                    }
+                    
+                    
+                });
+
+            });
+
+        });
+    </script>

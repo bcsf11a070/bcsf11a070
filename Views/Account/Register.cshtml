@@ -51,13 +51,13 @@
                 $.getJSON("/Account/CheckUnameAvailability?uname=" + uname, function (data)
                 {
                     if (data) {
-                        $('#p1').css("color", "green");
-                        $('#p1').text('User name available');
+                        $('#p1').css("color", "red");
+                        $('#p1').text('User name Not available');
                     }
                     else {
-                        $('#p1').css("color","red");
+                        $('#p1').css("color","green");
 
-                        $('#p1').text('User name Not available');
+                        $('#p1').text('User name available');
                     }
                     
                     
